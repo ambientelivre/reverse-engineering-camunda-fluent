@@ -41,7 +41,7 @@ public class CreateSimpleBPMNProcessTest {
 				.documentation("Students did not get enough grade to pass").connectTo("EndEvent");
 
 		UserTask approvedStudentTask = (UserTask) modelInstance.getModelElementById("approvedStudentTask");
-		approvedStudentTask.setName("New Task by Fluent");
+		approvedStudentTask.setName("Recovering Student Task");
 
 		// Gravar XML em arquivo Para visualização
 		//Bpmn.writeModelToStream(System.out, modelInstance);
