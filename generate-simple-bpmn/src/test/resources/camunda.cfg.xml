@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" 
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans   http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+  <bean id="processEngineConfiguration" class="org.camunda.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration">
+
+    <!-- Database configurations 
+    <property name="history" value="audit" />
+    <property name="databaseSchemaUpdate" value="true" />
+    -->
+    
+    <property name="jdbcUrl" value="jdbc:postgresql://localhost:5432/camunda13" />
+    <property name="jdbcDriver" value="org.postgresql.Driver" />
+    <property name="jdbcUsername" value="postgres" />
+    <property name="jdbcPassword" value="postgres" />
+    
+    <property name="databaseSchemaUpdate" value="false" />
+     <property name="history" value="full" />
+    
+    <!-- job executor configurations -->
+    <property name="jobExecutorActivate" value="false" />
+    
+    
+  </bean>
+
+</beans>

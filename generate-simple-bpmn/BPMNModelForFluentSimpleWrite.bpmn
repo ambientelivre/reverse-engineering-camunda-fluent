@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" exporter="Camunda Modeler" exporterVersion="3.7.1" expressionLanguage="http://www.w3.org/1999/XPath" id="Definitions_00i5kw0" targetNamespace="http://bpmn.io/schema/bpmn" typeLanguage="http://www.w3.org/2001/XMLSchema">
+  <bpmn:process id="BPMNModelForFluentSimpleModelRead" isClosed="false" isExecutable="true" name="BPMN Model for Fluent Simple Model Read" processType="None">
+    <bpmn:startEvent id="StartEvent" isInterrupting="true" name="Start Process" parallelMultiple="false">
+      <bpmn:documentation textFormat="text/plain">show</bpmn:documentation>
+      <outgoing xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL">sequenceFlow_fe9903ab-ef94-419e-8a97-c43365d76ea3</outgoing>
+    </bpmn:startEvent>
+    <bpmn:endEvent id="EndEvent" name="EndEvent">
+      <incoming xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL">sequenceFlow_3c471e23-0818-45fc-a449-3bb51f167926</incoming>
+    </bpmn:endEvent>
+    <userTask camunda:assignee="demo" id="TaskTeacher" name="Teacher informs student's grade" xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL">
+      <documentation id="documentation_ebf94866-ea7e-40d2-b421-7988bc6b5bb9">Teacher informs student's grade</documentation>
+      <incoming>sequenceFlow_fe9903ab-ef94-419e-8a97-c43365d76ea3</incoming>
+      <outgoing>sequenceFlow_4d60bce4-a4b2-4ab5-afb2-ccc38db07543</outgoing>
+    </userTask>
+    <sequenceFlow id="sequenceFlow_fe9903ab-ef94-419e-8a97-c43365d76ea3" sourceRef="StartEvent" targetRef="TaskTeacher" xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"/>
+    <userTask camunda:assignee="demo" id="approvedStudentTask" name="Approved student" xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL">
+      <documentation id="documentation_04c42ea5-2805-4aa0-a9bb-1e791f2a697c">Approved student</documentation>
+      <incoming>sequenceFlow_4d60bce4-a4b2-4ab5-afb2-ccc38db07543</incoming>
+      <outgoing>sequenceFlow_a1ac32ba-004c-4a6b-9806-c4a4250434af</outgoing>
+    </userTask>
+    <sequenceFlow id="sequenceFlow_4d60bce4-a4b2-4ab5-afb2-ccc38db07543" sourceRef="TaskTeacher" targetRef="approvedStudentTask" xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"/>
+    <userTask camunda:assignee="demo" id="ConfirmGraduationDate" name="Confirm Graduation Date" xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL">
+      <documentation id="documentation_ffd8470e-989d-46ba-bc64-fde909728a74">Approved student</documentation>
+      <incoming>sequenceFlow_a1ac32ba-004c-4a6b-9806-c4a4250434af</incoming>
+      <outgoing>sequenceFlow_3c471e23-0818-45fc-a449-3bb51f167926</outgoing>
+    </userTask>
+    <sequenceFlow id="sequenceFlow_a1ac32ba-004c-4a6b-9806-c4a4250434af" sourceRef="approvedStudentTask" targetRef="ConfirmGraduationDate" xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"/>
+    <sequenceFlow id="sequenceFlow_3c471e23-0818-45fc-a449-3bb51f167926" sourceRef="ConfirmGraduationDate" targetRef="EndEvent" xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"/>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane bpmnElement="BPMNModelForFluentSimpleModelRead" id="BPMNPlane_1">
+      <bpmndi:BPMNShape bioc:fill="white" bioc:stroke="black" bpmnElement="StartEvent" id="_BPMNShape_StartEvent_2">
+        <dc:Bounds height="36" width="36" x="152" y="79"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="14" width="67" x="139" y="122"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="EndEvent" id="Event_1x7y931_di">
+        <dc:Bounds height="36" width="36" x="752" y="79"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="14" width="48" x="746" y="122"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="TaskTeacher" id="BPMNShape_86d77ba3-fd77-4e06-935b-228d846fb5cd">
+        <dc:Bounds height="80.0" width="100.0" x="238.0" y="57.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sequenceFlow_fe9903ab-ef94-419e-8a97-c43365d76ea3" id="BPMNEdge_ce8960f2-2891-4ba4-a5c9-5ac7129b823f">
+        <di:waypoint x="188.0" y="97.0"/>
+        <di:waypoint x="238.0" y="97.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape bpmnElement="approvedStudentTask" id="BPMNShape_b659cc9a-b31d-4c65-8309-cc7eadded4eb">
+        <dc:Bounds height="80.0" width="100.0" x="388.0" y="57.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sequenceFlow_4d60bce4-a4b2-4ab5-afb2-ccc38db07543" id="BPMNEdge_091e3ace-005b-4713-b2d7-41d577ec36f7">
+        <di:waypoint x="338.0" y="97.0"/>
+        <di:waypoint x="388.0" y="97.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape bpmnElement="ConfirmGraduationDate" id="BPMNShape_00d803d4-48dd-4f63-adc4-d40436e0a2cb">
+        <dc:Bounds height="80.0" width="100.0" x="538.0" y="57.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sequenceFlow_a1ac32ba-004c-4a6b-9806-c4a4250434af" id="BPMNEdge_2cc767f2-3974-4f61-8665-19f334ad9a61">
+        <di:waypoint x="488.0" y="97.0"/>
+        <di:waypoint x="538.0" y="97.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sequenceFlow_3c471e23-0818-45fc-a449-3bb51f167926" id="BPMNEdge_c3f4f449-51e1-46b8-a327-bed24dc2ef8e">
+        <di:waypoint x="638.0" y="97.0"/>
+        <di:waypoint x="752.0" y="97.0"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
