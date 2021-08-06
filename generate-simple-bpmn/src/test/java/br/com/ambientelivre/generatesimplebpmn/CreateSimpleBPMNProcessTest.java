@@ -43,7 +43,7 @@ public class CreateSimpleBPMNProcessTest {
 		UserTask approvedStudentTask = (UserTask) modelInstance.getModelElementById("approvedStudentTask");
 		approvedStudentTask.setName("Recovering Student Task");
 
-		// Gravar XML em arquivo Para visualização
+		// View BPMN in System.out
 		//Bpmn.writeModelToStream(System.out, modelInstance);
 
 		File arqXML = new File("BPMNModelForFluentWrite.bpmn");
@@ -83,6 +83,18 @@ public class CreateSimpleBPMNProcessTest {
 		Bpmn.writeModelToFile(arqXMLSimple, simpleModel);
 
 		System.out.println(" Propriedade showSimple = " + docStart.iterator().next().getTextContent() );
+
+		// deploy process model
+		//processEngine.getRepositoryService().createDeployment().addModelInstance("BPMNModelForFluentSimpleWrite.bpmn",
+		//simpleModel).deploy();
+		
+		// start process model
+		//processEngine.getRuntimeService().startProcessInstanceByKey("BPMNModelForFluentSimpleModelRead");
+
+		// check if process instance is ended
+		// org.junit.Assert.assertEquals(0,
+		// processEngine.getRuntimeService().createProcessInstanceQuery().count());
+		
 		
 		/*
 		 * 
@@ -105,17 +117,5 @@ public class CreateSimpleBPMNProcessTest {
 		 * .connectTo("approveInvoice") .done();
 		 * 
 		 */
-
-		// deploy process model
-		// processEngine.getRepositoryService().createDeployment().addModelInstance("BPMNModelForFluentWrite.bpmn",
-		// modelInstance).deploy();
-
-		// start process model
-		// processEngine.getRuntimeService().startProcessInstanceByKey("BpmnModelForFluentRead");
-
-		// check if process instance is ended
-		// org.junit.Assert.assertEquals(0,
-		// processEngine.getRuntimeService().createProcessInstanceQuery().count());
-
 	}
 }
