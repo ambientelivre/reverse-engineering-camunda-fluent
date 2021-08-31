@@ -85,8 +85,8 @@ public class CreateSimpleBPMNProcessTest {
 		System.out.println(" Propriedade showSimple = " + docStart.iterator().next().getTextContent() );
 
 		// deploy process model
-		//processEngine.getRepositoryService().createDeployment().addModelInstance("BPMNModelForFluentSimpleWrite.bpmn",
-		//simpleModel).deploy();
+		processEngine.getRepositoryService().createDeployment().addModelInstance("BPMNModelForFluentSimpleWrite.bpmn",
+		simpleModel).deploy();
 		
 		// start process model
 		//processEngine.getRuntimeService().startProcessInstanceByKey("BPMNModelForFluentSimpleModelRead");
